@@ -8,7 +8,7 @@ YELLOW = (255, 255, 0)
 lane_pos = [50, 95, 142, 190]
 class Road():
 	def __init__(self):
-		self.image = pygame.image.load('Assets/road.png')
+		self.image = pygame.image.load('pygame/Assets/road.png')
 		self.image = pygame.transform.scale(self.image, (WIDTH-60, HEIGHT))
 		self.reset()
 		self.move = True
@@ -30,7 +30,7 @@ class Road():
 class Player(pygame.sprite.Sprite):
 	def __init__(self, x, y, type):
 		super(Player, self).__init__()
-		self.image = pygame.image.load(f'Assets/cars/{type+1}.png')
+		self.image = pygame.image.load(f'pygame/Assets/cars/{type+1}.png')
 		self.image = pygame.transform.scale(self.image, (48, 82))
 		self.rect = self.image.get_rect()
 		self.rect.x = x
@@ -54,15 +54,15 @@ class Obstacle(pygame.sprite.Sprite):
 		self.type = type
 		if type == 1:
 			ctype = random.randint(1, 8)
-			self.image = pygame.image.load(f'Assets/cars/{ctype}.png')
+			self.image = pygame.image.load(f'pygame/Assets/cars/{ctype}.png')
 			self.image = pygame.transform.flip(self.image, False, True)
 			self.image = pygame.transform.scale(self.image, (48, 82))
 		if type == 2:
-			self.image = pygame.image.load('Assets/barrel.png')
+			self.image = pygame.image.load('pygame/Assets/barrel.png')
 			self.image = pygame.transform.scale(self.image, (24, 36))
 			dx = 10
 		elif type == 3:
-			self.image = pygame.image.load('Assets/roadblock.png')
+			self.image = pygame.image.load('pygame/Assets/roadblock.png')
 			self.image = pygame.transform.scale(self.image, (50, 25))
 		self.rect = self.image.get_rect()
 		self.rect.x = random.choice(lane_pos) + dx
@@ -74,7 +74,7 @@ class Obstacle(pygame.sprite.Sprite):
 		win.blit(self.image, self.rect)
 class Nitro:
 	def __init__(self, x, y):
-		self.image = pygame.image.load('Assets/nitro.png')
+		self.image = pygame.image.load('pygame/Assets/nitro.png')
 		self.image = pygame.transform.scale(self.image, (42, 42))
 		self.rect = self.image.get_rect()
 		self.rect.x = x
@@ -102,7 +102,7 @@ class Tree(pygame.sprite.Sprite):
 	def __init__(self, x, y):
 		super(Tree, self).__init__()
 		type = random.randint(1, 4)
-		self.image = pygame.image.load(f'Assets/trees/{type}.png')
+		self.image = pygame.image.load(f'pygame/Assets/trees/{type}.png')
 		self.rect = self.image.get_rect()
 		self.rect.x = x
 		self.rect.y = y
@@ -115,7 +115,7 @@ class Tree(pygame.sprite.Sprite):
 class Fuel(pygame.sprite.Sprite):
 	def __init__(self, x, y):
 		super(Fuel, self).__init__()
-		self.image = pygame.image.load('Assets/fuel.png')
+		self.image = pygame.image.load('pygame/Assets/fuel.png')
 		self.rect = self.image.get_rect()
 		self.rect.x = x
 		self.rect.y = y
@@ -130,7 +130,7 @@ class Coins(pygame.sprite.Sprite):
 		super(Coins, self).__init__()
 		self.images = []
 		for i in range(1, 7):
-			img = pygame.image.load(f'Assets/Coins/{i}.png')
+			img = pygame.image.load(f'pygame/Assets/Coins/{i}.png')
 			self.images.append(img)
 		self.counter = 0
 		self.index = 0

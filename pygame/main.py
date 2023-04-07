@@ -24,31 +24,31 @@ BLACK = (0, 0, 20)
 font = pygame.font.SysFont('cursive', 32)
 select_car = font.render('Select Car', True, WHITE)
 # IMAGES **********************************************************************
-bg = pygame.image.load('Assets/bg.png')
-home_img = pygame.image.load('Assets/home.png')
-play_img = pygame.image.load('Assets/buttons/play2.png')
-end_img = pygame.image.load('Assets/end.jpg')
+bg = pygame.image.load('pygame/Assets/bg.png')
+home_img = pygame.image.load('pygame/Assets/home.png')
+play_img = pygame.image.load('pygame/Assets/buttons/play2.png')
+end_img = pygame.image.load('pygame/Assets/end.jpg')
 end_img = pygame.transform.scale(end_img, (WIDTH, HEIGHT))
-game_over_img = pygame.image.load('Assets/game_over.png')
+game_over_img = pygame.image.load('pygame/Assets/game_over.png')
 game_over_img = pygame.transform.scale(game_over_img, (220, 220))
-coin_img = pygame.image.load('Assets/coins/1.png')
-dodge_img = pygame.image.load('Assets/car_dodge.png')
-left_arrow = pygame.image.load('Assets/buttons/arrow.png')
+coin_img = pygame.image.load('pygame/Assets/coins/1.png')
+dodge_img = pygame.image.load('pygame/Assets/car_dodge.png')
+left_arrow = pygame.image.load('pygame/Assets/buttons/arrow.png')
 right_arrow = pygame.transform.flip(left_arrow, True, False)
-home_btn_img = pygame.image.load('Assets/buttons/home.png')
-replay_img = pygame.image.load('Assets/buttons/replay.png')
-sound_off_img = pygame.image.load("Assets/buttons/soundOff.png")
-sound_on_img = pygame.image.load("Assets/buttons/soundOn.png")
+home_btn_img = pygame.image.load('pygame/Assets/buttons/home.png')
+replay_img = pygame.image.load('pygame/Assets/buttons/replay.png')
+sound_off_img = pygame.image.load("pygame/Assets/buttons/soundOff.png")
+sound_on_img = pygame.image.load("pygame/Assets/buttons/soundOn.png")
 cars = []
 car_type = 0
 for i in range(1, 9):
-	img = pygame.image.load(f'Assets/cars/{i}.png')
+	img = pygame.image.load(f'pygame/Assets/cars/{i}.png')
 	img = pygame.transform.scale(img, (59, 101))
 	cars.append(img)
 nitro_frames = []
 nitro_counter = 0
 for i in range(6):
-	img = pygame.image.load(f'Assets/nitro/{i}.gif')
+	img = pygame.image.load(f'pygame/Assets/nitro/{i}.gif')
 	img = pygame.transform.flip(img, False, True)
 	img = pygame.transform.flip(img, False, True)
 	img = pygame.transform.scale(img, (18, 36))
@@ -64,12 +64,12 @@ home_btn = Button(home_btn_img, (24,24), WIDTH // 4 - 18, HEIGHT - 80)
 replay_btn = Button(replay_img, (36,36), WIDTH // 2  - 18, HEIGHT - 86)
 sound_btn = Button(sound_on_img, (24, 24), WIDTH - WIDTH // 4 - 18, HEIGHT - 80)
 # SOUNDS **********************************************************************
-click_fx = pygame.mixer.Sound('Sounds/click.mp3')
-fuel_fx = pygame.mixer.Sound('Sounds/fuel.wav')
-start_fx = pygame.mixer.Sound('Sounds/start.mp3')
-restart_fx = pygame.mixer.Sound('Sounds/restart.mp3')
-coin_fx = pygame.mixer.Sound('Sounds/coin.mp3')
-pygame.mixer.music.load('Sounds/mixkit-tech-house-vibes-130.mp3')
+click_fx = pygame.mixer.Sound('pygame/Sounds/click.mp3')
+fuel_fx = pygame.mixer.Sound('pygame/Sounds/fuel.wav')
+start_fx = pygame.mixer.Sound('pygame/Sounds/start.mp3')
+restart_fx = pygame.mixer.Sound('pygame/Sounds/restart.mp3')
+coin_fx = pygame.mixer.Sound('pygame/Sounds/coin.mp3')
+pygame.mixer.music.load('pygame/Sounds/mixkit-tech-house-vibes-130.mp3')
 pygame.mixer.music.play(loops=-1)
 pygame.mixer.music.set_volume(0.6)
 # OBJECTS *********************************************************************
@@ -254,13 +254,13 @@ while running:
 		p.draw(win)
 # Thanh năng lượng
 
-		'''if cfuel > 0:
+		if cfuel > 0:
 			pygame.draw.rect(win, GREEN, (20, 20, cfuel, 15), border_radius=5)
 		pygame.draw.rect(win, WHITE, (20, 20, 100, 15), 2, border_radius=5)
 		cfuel -= 0.05
 		if cfuel <= 0:
-	            game_page = False
-	            over_page = True'''
+			game_page = False
+			over_page = True
 		# COLLISION DETECTION & KILLS
 		for obstacle in obstacle_group:
 			if obstacle.rect.y >= HEIGHT:
