@@ -55,7 +55,7 @@ class Obstacle(pygame.sprite.Sprite):
 		if type == 1:
 			ctype = random.randint(1, 8)
 			self.image = pygame.image.load(f'pygame/Assets/cars/{ctype}.png')
-			self.image = pygame.transform.flip(self.image, False, True)
+			self.image = pygame.transform.flip(self.image, False, False)
 			self.image = pygame.transform.scale(self.image, (48, 82))
 		if type == 2:
 			self.image = pygame.image.load('pygame/Assets/barrel.png')
